@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="D:\Deploy Cloud\webservices" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="AgentWebService" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Global.asax" publishTime="02/05/2016 16:41:09" />
+    <file relUrl="MyForm.aspx" publishTime="03/04/2016 18:28:21" />
+    <file relUrl="Styles/Site.css" publishTime="02/05/2016 16:41:37" />
+    <file relUrl="Site.Master" publishTime="02/05/2016 16:41:09" />
+    <file relUrl="About.aspx" publishTime="02/05/2016 17:03:49" />
+    <file relUrl="Scripts/jquery-1.4.1.js" publishTime="02/05/2016 16:41:29" />
+    <file relUrl="Account/Web.config" publishTime="02/05/2016 16:41:09" />
+    <file relUrl="AgentWS.asmx" publishTime="02/05/2016 16:41:09" />
+    <file relUrl="Account/Login.aspx" publishTime="02/05/2016 16:41:09" />
+    <file relUrl="LoginSite.aspx" publishTime="05/17/2016 11:38:26" />
+    <file relUrl="Scripts/jquery-1.4.1.min.js" publishTime="02/05/2016 16:41:31" />
+    <file relUrl="bin/AjaxControlToolkit.dll" publishTime="02/05/2016 16:41:36" />
+    <file relUrl="Images/logo bless final-01.png" publishTime="03/13/2016 12:31:50" />
+    <file relUrl="Images/login_box.png" publishTime="03/13/2016 16:23:38" />
+    <file relUrl="bin/ChilkatDotNet4.dll" publishTime="08/26/2015 15:52:26" />
+    <file relUrl="Default.aspx" publishTime="02/05/2016 16:41:09" />
+    <file relUrl="Account/ChangePasswordSuccess.aspx" publishTime="02/05/2016 16:41:09" />
+    <file relUrl="Account/Register.aspx" publishTime="02/05/2016 16:41:09" />
+    <file relUrl="bin/AgentWS.pdb" publishTime="10/07/2016 16:51:46" />
+    <file relUrl="Account/ChangePassword.aspx" publishTime="02/05/2016 16:41:09" />
+    <file relUrl="AgentMgmt.asmx" publishTime="02/05/2016 16:41:09" />
+    <file relUrl="bin/AgentWS.xml" publishTime="10/07/2016 16:51:46" />
+    <file relUrl="LoginAPI.htm" publishTime="03/10/2016 11:09:30" />
+    <file relUrl="Web.config" publishTime="09/30/2016 10:48:26" />
+    <file relUrl="bin/AgentWS.dll" publishTime="10/07/2016 16:51:46" />
+    <file relUrl="webservice.htc" publishTime="03/10/2016 11:10:02" />
+    <file relUrl="Scripts/jquery-1.4.1-vsdoc.js" publishTime="02/05/2016 16:41:28" />
+  </publishProfile>
+</publishData>

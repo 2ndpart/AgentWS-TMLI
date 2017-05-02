@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ValidateAgentAndDevice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strAgentID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDeviceID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateAgentAndDeviceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidateAgentAndDeviceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strAgentID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDeviceID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidateLoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveDocument">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strBinary" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDocName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFolder" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSource" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="agentID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="totalFile" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveDocumentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveDocumentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrievePolicyNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="agentCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPolNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrievePolicyNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrievePolicyNumberResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EncryptAll">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strBinary" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDocName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strFolder" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSource" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="agentID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="totalFile" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EncryptAllResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EncryptAllResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ValidateAgentAndDeviceSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateAgentAndDevice" />
+  </wsdl:message>
+  <wsdl:message name="ValidateAgentAndDeviceSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateAgentAndDeviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateLogin" />
+  </wsdl:message>
+  <wsdl:message name="ValidateLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveDocumentSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveDocument" />
+  </wsdl:message>
+  <wsdl:message name="SaveDocumentSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrievePolicyNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrievePolicyNumber" />
+  </wsdl:message>
+  <wsdl:message name="RetrievePolicyNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrievePolicyNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="EncryptAllSoapIn">
+    <wsdl:part name="parameters" element="tns:EncryptAll" />
+  </wsdl:message>
+  <wsdl:message name="EncryptAllSoapOut">
+    <wsdl:part name="parameters" element="tns:EncryptAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateAgentAndDeviceHttpGetIn">
+    <wsdl:part name="strAgentID" type="s:string" />
+    <wsdl:part name="strDeviceID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidateAgentAndDeviceHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidateLoginHttpGetIn">
+    <wsdl:part name="strAgentID" type="s:string" />
+    <wsdl:part name="strPassword" type="s:string" />
+    <wsdl:part name="strDeviceID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidateLoginHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SaveDocumentHttpGetIn">
+    <wsdl:part name="strBinary" type="s:string" />
+    <wsdl:part name="strDocName" type="s:string" />
+    <wsdl:part name="strFolder" type="s:string" />
+    <wsdl:part name="strSource" type="s:string" />
+    <wsdl:part name="agentID" type="s:string" />
+    <wsdl:part name="totalFile" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SaveDocumentHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RetrievePolicyNumberHttpGetIn">
+    <wsdl:part name="agentCode" type="s:string" />
+    <wsdl:part name="strPolNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RetrievePolicyNumberHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="EncryptAllHttpGetIn">
+    <wsdl:part name="strBinary" type="s:string" />
+    <wsdl:part name="strDocName" type="s:string" />
+    <wsdl:part name="strFolder" type="s:string" />
+    <wsdl:part name="strSource" type="s:string" />
+    <wsdl:part name="agentID" type="s:string" />
+    <wsdl:part name="totalFile" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EncryptAllHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidateAgentAndDeviceHttpPostIn">
+    <wsdl:part name="strAgentID" type="s:string" />
+    <wsdl:part name="strDeviceID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidateAgentAndDeviceHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidateLoginHttpPostIn">
+    <wsdl:part name="strAgentID" type="s:string" />
+    <wsdl:part name="strPassword" type="s:string" />
+    <wsdl:part name="strDeviceID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidateLoginHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SaveDocumentHttpPostIn">
+    <wsdl:part name="strBinary" type="s:string" />
+    <wsdl:part name="strDocName" type="s:string" />
+    <wsdl:part name="strFolder" type="s:string" />
+    <wsdl:part name="strSource" type="s:string" />
+    <wsdl:part name="agentID" type="s:string" />
+    <wsdl:part name="totalFile" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SaveDocumentHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RetrievePolicyNumberHttpPostIn">
+    <wsdl:part name="agentCode" type="s:string" />
+    <wsdl:part name="strPolNo" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RetrievePolicyNumberHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="EncryptAllHttpPostIn">
+    <wsdl:part name="strBinary" type="s:string" />
+    <wsdl:part name="strDocName" type="s:string" />
+    <wsdl:part name="strFolder" type="s:string" />
+    <wsdl:part name="strSource" type="s:string" />
+    <wsdl:part name="agentID" type="s:string" />
+    <wsdl:part name="totalFile" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EncryptAllHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="AgentManagementWebServicesSoap">
+    <wsdl:operation name="ValidateAgentAndDevice">
+      <wsdl:input message="tns:ValidateAgentAndDeviceSoapIn" />
+      <wsdl:output message="tns:ValidateAgentAndDeviceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateLogin">
+      <wsdl:input message="tns:ValidateLoginSoapIn" />
+      <wsdl:output message="tns:ValidateLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveDocument">
+      <wsdl:input message="tns:SaveDocumentSoapIn" />
+      <wsdl:output message="tns:SaveDocumentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePolicyNumber">
+      <wsdl:input message="tns:RetrievePolicyNumberSoapIn" />
+      <wsdl:output message="tns:RetrievePolicyNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EncryptAll">
+      <wsdl:input message="tns:EncryptAllSoapIn" />
+      <wsdl:output message="tns:EncryptAllSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="AgentManagementWebServicesHttpGet">
+    <wsdl:operation name="ValidateAgentAndDevice">
+      <wsdl:input message="tns:ValidateAgentAndDeviceHttpGetIn" />
+      <wsdl:output message="tns:ValidateAgentAndDeviceHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateLogin">
+      <wsdl:input message="tns:ValidateLoginHttpGetIn" />
+      <wsdl:output message="tns:ValidateLoginHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveDocument">
+      <wsdl:input message="tns:SaveDocumentHttpGetIn" />
+      <wsdl:output message="tns:SaveDocumentHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePolicyNumber">
+      <wsdl:input message="tns:RetrievePolicyNumberHttpGetIn" />
+      <wsdl:output message="tns:RetrievePolicyNumberHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EncryptAll">
+      <wsdl:input message="tns:EncryptAllHttpGetIn" />
+      <wsdl:output message="tns:EncryptAllHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="AgentManagementWebServicesHttpPost">
+    <wsdl:operation name="ValidateAgentAndDevice">
+      <wsdl:input message="tns:ValidateAgentAndDeviceHttpPostIn" />
+      <wsdl:output message="tns:ValidateAgentAndDeviceHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateLogin">
+      <wsdl:input message="tns:ValidateLoginHttpPostIn" />
+      <wsdl:output message="tns:ValidateLoginHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveDocument">
+      <wsdl:input message="tns:SaveDocumentHttpPostIn" />
+      <wsdl:output message="tns:SaveDocumentHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePolicyNumber">
+      <wsdl:input message="tns:RetrievePolicyNumberHttpPostIn" />
+      <wsdl:output message="tns:RetrievePolicyNumberHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EncryptAll">
+      <wsdl:input message="tns:EncryptAllHttpPostIn" />
+      <wsdl:output message="tns:EncryptAllHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AgentManagementWebServicesSoap" type="tns:AgentManagementWebServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ValidateAgentAndDevice">
+      <soap:operation soapAction="http://tempuri.org/ValidateAgentAndDevice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateLogin">
+      <soap:operation soapAction="http://tempuri.org/ValidateLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDocument">
+      <soap:operation soapAction="http://tempuri.org/SaveDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePolicyNumber">
+      <soap:operation soapAction="http://tempuri.org/RetrievePolicyNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EncryptAll">
+      <soap:operation soapAction="http://tempuri.org/EncryptAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AgentManagementWebServicesSoap12" type="tns:AgentManagementWebServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ValidateAgentAndDevice">
+      <soap12:operation soapAction="http://tempuri.org/ValidateAgentAndDevice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateLogin">
+      <soap12:operation soapAction="http://tempuri.org/ValidateLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDocument">
+      <soap12:operation soapAction="http://tempuri.org/SaveDocument" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePolicyNumber">
+      <soap12:operation soapAction="http://tempuri.org/RetrievePolicyNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EncryptAll">
+      <soap12:operation soapAction="http://tempuri.org/EncryptAll" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AgentManagementWebServicesHttpGet" type="tns:AgentManagementWebServicesHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="ValidateAgentAndDevice">
+      <http:operation location="/ValidateAgentAndDevice" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateLogin">
+      <http:operation location="/ValidateLogin" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDocument">
+      <http:operation location="/SaveDocument" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePolicyNumber">
+      <http:operation location="/RetrievePolicyNumber" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EncryptAll">
+      <http:operation location="/EncryptAll" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AgentManagementWebServicesHttpPost" type="tns:AgentManagementWebServicesHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="ValidateAgentAndDevice">
+      <http:operation location="/ValidateAgentAndDevice" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateLogin">
+      <http:operation location="/ValidateLogin" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveDocument">
+      <http:operation location="/SaveDocument" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePolicyNumber">
+      <http:operation location="/RetrievePolicyNumber" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EncryptAll">
+      <http:operation location="/EncryptAll" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AgentManagementWebServices">
+    <wsdl:port name="AgentManagementWebServicesSoap" binding="tns:AgentManagementWebServicesSoap">
+      <soap:address location="http://localhost:52402/AgentMgmt.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AgentManagementWebServicesSoap12" binding="tns:AgentManagementWebServicesSoap12">
+      <soap12:address location="http://localhost:52402/AgentMgmt.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AgentManagementWebServicesHttpGet" binding="tns:AgentManagementWebServicesHttpGet">
+      <http:address location="http://localhost:52402/AgentMgmt.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AgentManagementWebServicesHttpPost" binding="tns:AgentManagementWebServicesHttpPost">
+      <http:address location="http://localhost:52402/AgentMgmt.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

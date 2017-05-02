@@ -1,0 +1,559 @@
+﻿Imports System.Web.Services
+Imports System.Web.Services.Protocols
+Imports System.ComponentModel
+Imports System.IO
+Imports System.Security
+Imports System.Security.Cryptography
+Imports System.Xml
+Imports System.Globalization
+Imports System.Web
+Imports System.Configuration
+Imports System.Net
+Imports System.Net.Mail
+Imports System.Data.SqlClient
+Imports System.Text
+
+' To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line.
+<System.Web.Script.Services.ScriptService()> _
+<System.Web.Services.WebService(Namespace:="http://tempuri.org/")> _
+<System.Web.Services.WebServiceBinding(ConformsTo:=WsiProfiles.BasicProfile1_1)> _
+<ToolboxItem(False)> _
+Public Class AgentWS
+    Inherits System.Web.Services.WebService
+
+    <WebMethod()>
+    Public Function HelloWorld() As String
+        Return "Hello World"
+    End Function
+
+    '***************************************
+    'Function: ValidateLogin
+    'Author: Faiz
+    'Date: 27/8/2015
+    'Summary: Validate with agent code, device ID and agent password
+    'Edited by: Eugene on 17/2/2016 - Johan on 11/9/2016
+    '***************************************
+    <WebMethod()>
+    Public Function ValidateLogin(ByVal strAgentID As String, ByVal strPassword As String, ByVal strUDID As String, ByRef strStatus As String) As DataTable
+
+        Dim isSuccess As Boolean = False
+        Dim objDBCom As New MySQLDBComponent.MySQLDBComponent(POSWeb.POSWeb_SQLConn)
+        Dim dt As New DataTable
+        Dim dc As New DataColumn
+
+        Try
+            objDBCom.AddParameter("@AgentCode", SqlDbType.NVarChar, strAgentID)
+            objDBCom.AddParameter("@AgentPassword", SqlDbType.NVarChar, strPassword)
+            objDBCom.AddParameter("@UDID", SqlDbType.NVarChar, strUDID)
+            objDBCom.ExecuteProcedure(dt, "TMLI_WS_Agent_ValidateLogin")
+            objDBCom.Dispose()
+            Dim conn As New SqlConnection(POSWeb.POSWeb_SQLConn)
+
+            If (conn.State = ConnectionState.Open) Then
+                conn.Close()
+            End If
+
+            If dt.Rows.Count > 0 Then
+                conn.Open()
+                Dim command As New SqlCommand("SELECT AgentStatus FROM [TMLI_Agent_Profile] WHERE AgentCode=" & dt.Rows(0)("DirectSupervisorCode").ToString(), conn)
+                Dim supervisorStatus As String = command.ExecuteScalar()
+                conn.Close()
+
+                For Each dr As DataRow In dt.Rows
+                    dr("DirectSupervisorCode") = supervisorStatus
+                Next
+            End If
+
+            If dt.Rows.Count > 0 Then
+                strStatus = "True"
+                dt.TableName = "TMLI_Agent_Profile"
+
+            Else
+                strStatus = "False"
+                dt.TableName = "TMLI_Agent_Profile"
+
+            End If
+            Return dt
+            dt.Dispose()
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+
+    '***************************************
+    'Function: Forgot Password
+    'Author: Eugene
+    'Date: 26/1/2016
+    'Summary: send password for user in case password forgotten
+    '***************************************
+    <WebMethod()> _
+    Public Function SendForgotPassword(ByVal strAgentId As String) As String
+        Dim isSuccess As Boolean = False
+        Dim objDBcom = New MySQLDBComponent.MySQLDBComponent(POSWeb.POSWeb_SQLConn)
+        Dim dt As New DataTable
+        Dim userEmail As String = String.Empty
+        Dim password As String = String.Empty
+        Dim str As String = True
+
+        objDBcom.AddParameter("@AgentCode", SqlDbType.NVarChar, strAgentId)
+        objDBcom.ExecuteProcedure(dt, "TMLI_WS_Agent_Profile_ForgotPassword")
+        objDBcom.Dispose()
+
+        If dt.Rows.Count > 0 Then
+            userEmail = dt.Rows(0)("RINTERNET").ToString()
+            password = dt.Rows(0)("AGNTPASS").ToString()
+            If Not String.IsNullOrEmpty(password) Then
+
+                Dim adminmail As String = System.Configuration.ConfigurationManager.AppSettings("emailAddress").ToString()
+                Dim userpass As String = System.Configuration.ConfigurationManager.AppSettings("emailPassword").ToString()
+                Dim smtp As New SmtpClient()
+                Dim message As New MailMessage(adminmail, userEmail)
+                message.Subject = "Password Recovery"
+                message.Body = String.Format("Hi {0},<br /><br />Your password is {1}.<br /><br />Thank You.", strAgentId, DecryptString(password, "1234567891123456"))
+                message.IsBodyHtml = True
+                smtp.Host = "smtp.gmail.com"
+                smtp.EnableSsl = True
+                Dim NetworkCred As New NetworkCredential(adminmail, userpass)
+                smtp.Credentials = NetworkCred
+                smtp.Port = 587
+                smtp.Send(message)
+                Return str
+            Else
+                Return "False"
+            End If
+            dt.Dispose()
+        End If
+    End Function
+
+
+    '***************************************
+    'Function: LoginFirstTime
+    'Author: Eugene
+    'Date: 15/2/2016
+    'Summary: User login for the first time.
+    '***************************************
+    <WebMethod()> _
+    Public Function ReceiveFirstLogin(ByVal strAgentId As String, ByVal strAgentPass As String, ByVal strNewPass As String, ByVal strUID As String, ByRef strStatus As String) As DataTable
+        Dim isSuccess As Boolean = False
+        Dim objDBCom As New MySQLDBComponent.MySQLDBComponent(POSWeb.POSWeb_SQLConn)
+        Dim dt As New DataTable
+        Dim dc As New DataColumn
+        Dim rt As String = ""
+
+        'Dim str As String = "True"
+
+        Try
+            objDBCom.AddParameter("@AgentCode", SqlDbType.NVarChar, strAgentId)
+            objDBCom.AddParameter("@AgentPass", SqlDbType.NVarChar, strAgentPass)
+            objDBCom.AddParameter("@NewPass", SqlDbType.NVarChar, strNewPass)
+            objDBCom.AddParameter("@UDID", SqlDbType.NVarChar, strUID)
+
+            objDBCom.ExecuteProcedure(dt, "TMLI_WS_Agent_ValidateFirstTime")
+            objDBCom.Dispose()
+
+            If dt.Rows.Count > 0 Then
+                strStatus = "True"
+                dt.TableName = "TMLI_Agent_Profile"
+                Return dt
+            Else
+                strStatus = "False"
+            End If
+
+            dt.Dispose()
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+    '***************************************
+
+
+    '***************************************
+    'Function: Change Password
+    'Author: Eugene
+    'Date: 19/2/2016
+    'Summary: User change password.
+    '***************************************
+    <WebMethod()> _
+    Public Function ChangePassword(ByVal strAgentId As String, ByVal strPassword As String, ByVal strNewPass As String, ByVal strUDID As String) As String
+        Dim isSuccess As Boolean = False
+        Dim objDBCom As New MySQLDBComponent.MySQLDBComponent(POSWeb.POSWeb_SQLConn)
+        Dim dt As New DataTable
+
+        Try
+            objDBCom.AddParameter("@AgentCode", SqlDbType.NVarChar, strAgentId)
+            objDBCom.AddParameter("@AgentPass", SqlDbType.NVarChar, strPassword)
+            objDBCom.AddParameter("@NewPass", SqlDbType.NVarChar, strNewPass)
+            objDBCom.AddParameter("@UDID", SqlDbType.NVarChar, strUDID)
+
+            objDBCom.ExecuteProcedure(dt, "TMLI_WS_Agent_ChangePassword")
+            objDBCom.Dispose()
+
+            If dt.Rows.Count > 0 Then
+                Return True
+            Else
+                Return False
+            End If
+        Catch ex As Exception
+            Throw ex
+        End Try
+
+    End Function
+
+    '***************************************
+
+
+    '***************************************
+    'Function: FullSyncTable
+    'Author: Eugene
+    'Date: 22/2/2016
+    'Summary: Sync table fully when user login
+    '***************************************
+    <WebMethod()> _
+    Public Function FullSyncTable(ByVal strAgentCode As String, ByRef strStatus As String) As DataSet
+        Dim isSuccess As Boolean = False
+        Dim objDBCom As New MySQLDBComponent.MySQLDBComponent(POSWeb.POSWeb_SQLConn)
+        Dim dt As New DataTable
+        Dim dc As New DataSet
+        Dim dt2 As New DataTable
+        Dim ag As New DataTable
+        Dim i As Integer = 0
+        Dim j As String = 0
+
+        Try
+            Dim findagent As String = "select * from TMLI_Agent_Profile where AGNTNUM = '" + strAgentCode.ToString() + "'"
+            objDBCom.ExecuteSQL(ag, findagent)
+            If Not ag.Rows.Count.Equals(0) Then
+                'Stored procedure to list down all related tables that need to be pass to another device
+                objDBCom.AddParameter("@agentcode", SqlDbType.NVarChar, strAgentCode)
+                objDBCom.ExecuteProcedure(dc, "TMLI_WS_Agent_FullSync")
+                objDBCom.Parameters.Clear()
+                'The below stored procedure will list all the names of the tables in the database in 
+                'same order and numbers as the above stored procedure
+                objDBCom.ExecuteProcedure(dt, "TMLI_WS_Agent_Extra")
+                If dt.Rows.Count > 0 Then
+                    'For Each rows In dt.Rows
+                    For Each Table As DataTable In dc.Tables
+                        dc.Tables(i).TableName = dt.Rows(j)(0).ToString()
+                        If Table.TableName.Equals("TMLI_Master_Info") Or Table.TableName.Equals("TMLI_Data_Version") Then
+
+                        ElseIf Table.TableName.Equals("TMLI_eProposal_Marital_Status") Or Table.TableName.Equals("TMLI_eProposal_Nationality") Or Table.TableName.Equals("TMLI_eProposal_OCCP") Or Table.TableName.Equals("TMLI_eProposal_Religion") Then
+                            Table.Columns.Remove("item_time")
+                        ElseIf Table.TableName.Equals("TMLI_Data_Cabang") Or Table.TableName.Equals("TMLI_eProposal_Relation") Then
+                            Table.Columns.Remove("IsUpdate")
+                        Else
+                            Table.Columns.Remove("IsNew")
+                            Table.Columns.Remove("IsUpdate")
+                            Table.Columns.Remove("RowStatus")
+                        End If
+                        i += 1
+                        j += 1
+                    Next
+                    objDBCom.AddParameter("@agentcode", SqlDbType.NVarChar, strAgentCode)
+                    objDBCom.ExecuteProcedure(dt2, "TMLI_WS_Agent_SelectAgent")
+                    objDBCom.Dispose()
+                    dt2.TableName = "TMLI_Agent_Profile"
+                    dc.Tables.Add(dt2)
+                    'Next
+                    strStatus = "True"
+                    Return dc
+                Else
+                    strStatus = "False"
+                End If
+            Else
+                strStatus = "False"
+            End If
+        Catch ex As Exception
+            Throw ex
+        End Try
+
+    End Function
+    '***************************************
+
+    '***************************************
+    'Function: CheckVersion
+    'Author: Eugene
+    'Date: 22/2/2016
+    'Summary: Check version of each table
+    '***************************************
+    <WebMethod()> _
+    Public Function CheckVersion(ByVal strVesion As String, ByRef strStatus As String) As DataTable
+        Dim isSuccess As Boolean = False
+        Dim objDBCom As New MySQLDBComponent.MySQLDBComponent(POSWeb.POSWeb_SQLConn)
+        Dim dt As New DataTable
+        Dim dt2 As New DataTable
+        Dim x As String = ""
+        Dim sql As String = ""
+        Dim sql2 As String = ""
+        strVesion = 1
+
+        sql = "Select VersionNo from TMLI_Master_Info where TableName = 'TMLI_Master_Info'"
+        objDBCom.ExecuteSQL(dt2, sql)
+        x = dt2.Rows(0)(0)
+        If strVesion <> x Then
+            sql2 = "select * from TMLI_Master_Info where TableName != 'TMLI_Master_Info'"
+            objDBCom.ExecuteSQL(dt, sql2)
+            objDBCom.Dispose()
+            dt.TableName = "Master_Info"
+            strStatus = "True"
+            Return dt
+        Else
+            strStatus = "False"
+        End If
+
+    End Function
+    '***************************************
+
+    '***************************************
+    'Function: Login API
+    'Created: 4/3/2016
+    'Summary: For testing purpose
+    '***************************************
+    <WebMethod()> _
+    Public Function LoginAPI(ByVal strAgentCode As String, ByVal strPass As String, ByVal strStatus As String) As String
+        Dim isSuccess As Boolean = False
+        Dim objDBCom As New MySQLDBComponent.MySQLDBComponent(POSWeb.POSWeb_SQLConn)
+        Dim dt As New DataTable
+
+        Try
+            objDBCom.AddParameter("@agentcode", SqlDbType.NVarChar, strAgentCode)
+            objDBCom.AddParameter("@agentpass", SqlDbType.NVarChar, strPass)
+            objDBCom.ExecuteProcedure(dt, "TMLI_LoginAPI")
+            objDBCom.Dispose()
+
+            If dt.Rows.Count <> 0 Then
+                strStatus = "True"
+                Return strStatus
+            Else
+                strStatus = "False"
+                Return strStatus
+            End If
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+    '***************************************
+
+    '***************************************
+    'Function: Version Checker
+    'Created: 10/3/2016
+    'Summary: check the version of the application
+    '***************************************
+    <WebMethod()> _
+    Public Function VersionChecker(ByVal strVersion As String) As String
+        Dim isSuccess As Boolean = False
+        Dim sql As String = ""
+        sql &= "select MAX(VersionNo) as NewestVersion from TMLI_Version_checker"
+        Dim objDBCom As New MySQLDBComponent.MySQLDBComponent(POSWeb.POSWeb_SQLConn)
+        Dim dt As New DataTable
+
+        Try
+            objDBCom.ExecuteSQL(dt, sql)
+            objDBCom.Dispose()
+            If dt.Rows.Count <> 0 Then
+                If Convert.ToDouble(dt.Rows(0)(0)) > Convert.ToDouble(strVersion) Then
+                    Return "True"
+                ElseIf Convert.ToDouble(dt.Rows(0)(0)) <= Convert.ToDouble(strVersion) Then
+                    Return "False"
+                End If
+            End If
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+    '***************************************
+
+    Public Function EncryptString(plainSourceStringToEncrypt As String, passPhrase As String) As String
+        'Set up the encryption objects
+        Using acsp As AesCryptoServiceProvider = GetProvider(Encoding.[Default].GetBytes(passPhrase))
+            Dim sourceBytes As Byte() = Encoding.ASCII.GetBytes(plainSourceStringToEncrypt)
+            Dim ictE As ICryptoTransform = acsp.CreateEncryptor()
+
+            'Set up stream to contain the encryption
+            Dim msS As New MemoryStream()
+
+            'Perform the encrpytion, storing output into the stream
+            Dim csS As New CryptoStream(msS, ictE, CryptoStreamMode.Write)
+            csS.Write(sourceBytes, 0, sourceBytes.Length)
+            csS.FlushFinalBlock()
+
+            'sourceBytes are now encrypted as an array of secure bytes
+            Dim encryptedBytes As Byte() = msS.ToArray()
+            '.ToArray() is important, don't mess with the buffer
+            'return the encrypted bytes as a BASE64 encoded string
+            Return Convert.ToBase64String(encryptedBytes)
+        End Using
+    End Function
+
+    '***************************************
+
+    Public Function DecryptString(base64StringToDecrypt As String, passphrase As String) As String
+        'Set up the encryption objects
+        Using acsp As AesCryptoServiceProvider = GetProvider(Encoding.[Default].GetBytes(passphrase))
+            Dim RawBytes As Byte() = Convert.FromBase64String(base64StringToDecrypt)
+            Dim ictD As ICryptoTransform = acsp.CreateDecryptor()
+
+            'RawBytes now contains original byte array, still in Encrypted state
+
+            'Decrypt into stream
+            Dim msD As New MemoryStream(RawBytes, 0, RawBytes.Length)
+            Dim csD As New CryptoStream(msD, ictD, CryptoStreamMode.Read)
+            'csD now contains original byte array, fully decrypted
+
+            'return the content of msD as a regular string
+            Return (New StreamReader(csD)).ReadToEnd()
+        End Using
+    End Function
+
+    '***************************************
+
+    Private Function GetProvider(key As Byte()) As AesCryptoServiceProvider
+        Dim result As New AesCryptoServiceProvider()
+        result.BlockSize = 128
+        result.KeySize = 128
+        result.Mode = CipherMode.CBC
+        result.Padding = PaddingMode.PKCS7
+
+        result.GenerateIV()
+        result.IV = New Byte() {0, 0, 0, 0, 0, 0, _
+         0, 0, 0, 0, 0, 0, _
+         0, 0, 0, 0}
+
+        Dim RealKey As Byte() = GetKey(key, result)
+        result.Key = RealKey
+        ' result.IV = RealKey;
+        Return result
+    End Function
+
+    '***************************************
+
+    Private Function GetKey(suggestedKey As Byte(), p As SymmetricAlgorithm) As Byte()
+        Dim kRaw As Byte() = suggestedKey
+        Dim kList As New List(Of Byte)()
+
+        For i As Integer = 0 To p.LegalKeySizes(0).MinSize - 1 Step 8
+            kList.Add(kRaw((i / 8) Mod kRaw.Length))
+        Next
+        Dim k As Byte() = kList.ToArray()
+        Return k
+    End Function
+
+    '***************************************
+    'Function: ChangeUDID
+    'Author: Eugene
+    'Date: 3/6/2016
+    'Summary: Change the UDID for each Agent
+    '***************************************
+    <WebMethod()> _
+    Public Function ChangeUDID(ByVal strAgentcode As String, ByVal strUDID As String, ByRef strStatus As String) As String
+        Dim isSuccess As Boolean = False
+        Dim objDBCom As New MySQLDBComponent.MySQLDBComponent(POSWeb.POSWeb_SQLConn)
+        Dim dt As New DataTable
+
+        objDBCom.AddParameter("@AgentCode", SqlDbType.VarChar, strAgentcode)
+        objDBCom.AddParameter("@UDID", SqlDbType.VarChar, strUDID)
+        objDBCom.ExecuteProcedure(dt, "TMLI_UpdateAgentUDID")
+
+        objDBCom.Dispose()
+        If dt.Rows.Count <> 0 Then
+            strStatus = "True"
+            Return strStatus
+        Else
+            strStatus = "False"
+            Return strStatus
+        End If
+    End Function
+
+    '***************************************
+    'Function: SyncDataReferral
+    'Author: Eugene
+    'Date: 3/6/2016
+    'Summary: Sync date using updateddate
+    '***************************************
+    <WebMethod()> _
+    Public Function Syncdatareferral(ByVal strUpdateDate As String, ByRef strstatus As String) As DataTable
+        Dim objDBCom As New MySQLDBComponent.MySQLDBComponent(POSWeb.POSWeb_SQLConn)
+        Dim dt As New DataTable
+
+        Dim query As String = "select * from TMLI_DataReferral where IsUpdate > (SELECT CONVERT(datetime, SWITCHOFFSET(CONVERT(datetimeoffset, @strUpdateDate), DATENAME(TzOffset, SYSDATETIMEOFFSET()))))"
+        objDBCom.AddParameter("@strUpdateDate", SqlDbType.VarChar, strUpdateDate)
+        objDBCom.ExecuteSQL(dt, query)
+
+        objDBCom.Dispose()
+        If dt.Rows.Count <> 0 Then
+            dt.Columns("IsNew").ColumnName = "CreateTime"
+            dt.Columns("IsUpdate").ColumnName = "UpdateTime"
+            dt.Columns.Remove("RowStatus")
+            strstatus = "True"
+            dt.TableName = "TMLI_DataReferral"
+            Return dt
+        Else
+            strstatus = "False"
+        End If
+    End Function
+
+    '***************************************
+    'Function: SyncDataVersion
+    'Author: Eugene
+    'Date: 3/8/2016
+    'Summary: Sync Data Version Table
+    '***************************************
+    <WebMethod()> _
+    Public Function SyncDataVersion(ByVal Version As String, ByRef strStatus As String) As String
+        Dim objDBCom As New MySQLDBComponent.MySQLDBComponent(POSWeb.POSWeb_SQLConn)
+        Dim dt As New DataTable
+        Dim q As String = "select MAX(Version) as NewestVersion from TMLI_Data_Version"
+        objDBCom.ExecuteSQL(dt, q)
+        objDBCom.Dispose()
+        Try
+            objDBCom.ExecuteSQL(dt, q)
+            objDBCom.Dispose()
+            If dt.Rows.Count <> 0 Then
+                If Convert.ToDouble(dt.Rows(0)(0)) > Convert.ToDouble(Version) Then
+                    Return "True"
+                ElseIf Convert.ToDouble(dt.Rows(0)(0)) <= Convert.ToDouble(Version) Then
+                    Return "False"
+                End If
+            End If
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
+
+    '***************************************
+
+    '***************************************
+    'Function: AdminLogin
+    'Created: 15/3/2016
+    'Summary: Admin login
+    '***************************************
+    <WebMethod()>
+    Public Function AdminLogin(ByVal stradmin As String, ByVal stradminpass As String, ByVal strStatus As String) As String
+        Dim isSuccess As Boolean = False
+        Dim objDBCom As New MySQLDBComponent.MySQLDBComponent(POSWeb.POSWeb_SQLConn)
+        Dim dt As New DataTable
+
+        Dim SQL As String = "select distinct * from TMLI_Agent_Profile where AGENTADMIN = @admincode and ADMINPASS = @adminpass"
+
+        objDBCom.AddParameter("@admincode", SqlDbType.VarChar, stradmin)
+        objDBCom.AddParameter("@adminpass", SqlDbType.VarChar, stradminpass)
+        objDBCom.ExecuteSQL(dt, SQL)
+        objDBCom.Dispose()
+        If dt.Rows.Count <> 0 Then
+            strStatus = "True"
+            Return strStatus
+        Else
+            strStatus = "False"
+            Return strStatus
+        End If
+
+    End Function
+    '***************************************
+    <WebMethod()>
+    Public Function encryptPassAgent(strString As String) As String
+        Dim result As String = EncryptString(strString, "1234567891123456")
+        If Not result.Equals(String.Empty) Then
+            Return result
+        End If
+    End Function
+
+End Class

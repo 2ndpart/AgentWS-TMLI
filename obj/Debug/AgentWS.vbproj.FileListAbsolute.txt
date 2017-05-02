@@ -1,0 +1,128 @@
+D:\Mobile\Agent\AgentModule\AgentWS\AgentWS\bin\AgentWS.dll
+D:\Mobile\Agent\AgentModule\AgentWS\AgentWS\bin\AgentWS.pdb
+D:\Mobile\Agent\AgentModule\AgentWS\AgentWS\bin\AgentWS.xml
+D:\Mobile\Agent\AgentModule\AgentWS\AgentWS\obj\Debug\ResolveAssemblyReference.cache
+D:\Mobile\Agent\AgentModule\AgentWS\AgentWS\obj\Debug\AgentWS.Resources.resources
+D:\Mobile\Agent\AgentModule\AgentWS\AgentWS\obj\Debug\GenerateResource.read.1.tlog
+D:\Mobile\Agent\AgentModule\AgentWS\AgentWS\obj\Debug\GenerateResource.write.1.tlog
+D:\Mobile\Agent\AgentModule\AgentWS\AgentWS\obj\Debug\AgentWS.dll
+D:\Mobile\Agent\AgentModule\AgentWS\AgentWS\obj\Debug\AgentWS.xml
+D:\Mobile\Agent\AgentModule\AgentWS\AgentWS\obj\Debug\AgentWS.pdb
+D:\Mobile\Agent\AgentModule\AgentWS\AgentWS\bin\ChilkatDotNet4.dll
+C:\Users\Admin\Desktop\AgentModule\AgentWS\AgentWS\bin\AgentWS.dll
+C:\Users\Admin\Desktop\AgentModule\AgentWS\AgentWS\bin\AgentWS.pdb
+C:\Users\Admin\Desktop\AgentModule\AgentWS\AgentWS\bin\AgentWS.xml
+C:\Users\Admin\Desktop\AgentModule\AgentWS\AgentWS\bin\ChilkatDotNet4.dll
+C:\Users\Admin\Desktop\AgentModule\AgentWS\AgentWS\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Admin\Desktop\AgentModule\AgentWS\AgentWS\obj\Debug\AgentWS.Resources.resources
+C:\Users\Admin\Desktop\AgentModule\AgentWS\AgentWS\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\Admin\Desktop\AgentModule\AgentWS\AgentWS\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\Admin\Desktop\AgentModule\AgentWS\AgentWS\obj\Debug\AgentWS.dll
+C:\Users\Admin\Desktop\AgentModule\AgentWS\AgentWS\obj\Debug\AgentWS.xml
+C:\Users\Admin\Desktop\AgentModule\AgentWS\AgentWS\obj\Debug\AgentWS.pdb
+C:\Users\Admin\Desktop\AgentModule\AgentWS\AgentWS_Sf\bin\AgentWS.dll
+C:\Users\Admin\Desktop\AgentModule\AgentWS\AgentWS_Sf\bin\AgentWS.pdb
+C:\Users\Admin\Desktop\AgentModule\AgentWS\AgentWS_Sf\bin\AgentWS.xml
+C:\Users\Admin\Desktop\AgentModule\AgentWS\AgentWS_Sf\bin\ChilkatDotNet4.dll
+C:\Users\Admin\Desktop\AgentModule\AgentWS\AgentWS_Sf\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Admin\Desktop\AgentModule\AgentWS\AgentWS_Sf\obj\Debug\AgentWS.Resources.resources
+C:\Users\Admin\Desktop\AgentModule\AgentWS\AgentWS_Sf\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\Admin\Desktop\AgentModule\AgentWS\AgentWS_Sf\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\Admin\Desktop\AgentModule\AgentWS\AgentWS_Sf\obj\Debug\AgentWS.dll
+C:\Users\Admin\Desktop\AgentModule\AgentWS\AgentWS_Sf\obj\Debug\AgentWS.xml
+C:\Users\Admin\Desktop\AgentModule\AgentWS\AgentWS_Sf\obj\Debug\AgentWS.pdb
+G:\BCALife\AgentModule\AgentWS\AgentWS_Sf\bin\AgentWS.dll
+G:\BCALife\AgentModule\AgentWS\AgentWS_Sf\bin\AgentWS.pdb
+G:\BCALife\AgentModule\AgentWS\AgentWS_Sf\bin\AgentWS.xml
+G:\BCALife\AgentModule\AgentWS\AgentWS_Sf\obj\Debug\AgentWS.vbprojResolveAssemblyReference.cache
+G:\BCALife\AgentModule\AgentWS\AgentWS_Sf\obj\Debug\AgentWS.Resources.resources
+G:\BCALife\AgentModule\AgentWS\AgentWS_Sf\obj\Debug\AgentWS.vbproj.GenerateResource.Cache
+G:\BCALife\AgentModule\AgentWS\AgentWS_Sf\obj\Debug\AgentWS.dll
+G:\BCALife\AgentModule\AgentWS\AgentWS_Sf\obj\Debug\AgentWS.xml
+G:\BCALife\AgentModule\AgentWS\AgentWS_Sf\obj\Debug\AgentWS.pdb
+C:\Users\Kong\Desktop\BCALife\AgentModule\AgentWS\AgentWS_Sf\bin\AgentWS.dll
+C:\Users\Kong\Desktop\BCALife\AgentModule\AgentWS\AgentWS_Sf\bin\AgentWS.pdb
+C:\Users\Kong\Desktop\BCALife\AgentModule\AgentWS\AgentWS_Sf\bin\AgentWS.xml
+C:\Users\Kong\Desktop\BCALife\AgentModule\AgentWS\AgentWS_Sf\obj\Debug\AgentWS.vbprojResolveAssemblyReference.cache
+C:\Users\Kong\Desktop\BCALife\AgentModule\AgentWS\AgentWS_Sf\obj\Debug\AgentWS.Resources.resources
+C:\Users\Kong\Desktop\BCALife\AgentModule\AgentWS\AgentWS_Sf\obj\Debug\AgentWS.vbproj.GenerateResource.Cache
+C:\Users\Kong\Desktop\BCALife\AgentModule\AgentWS\AgentWS_Sf\obj\Debug\AgentWS.dll
+C:\Users\Kong\Desktop\BCALife\AgentModule\AgentWS\AgentWS_Sf\obj\Debug\AgentWS.xml
+C:\Users\Kong\Desktop\BCALife\AgentModule\AgentWS\AgentWS_Sf\obj\Debug\AgentWS.pdb
+D:\AgentWS_Sf\bin\AgentWS.dll
+D:\AgentWS_Sf\bin\AgentWS.pdb
+D:\AgentWS_Sf\bin\AgentWS.xml
+D:\AgentWS_Sf\obj\Debug\AgentWS.Resources.resources
+D:\AgentWS_Sf\obj\Debug\AgentWS.vbproj.GenerateResource.Cache
+D:\AgentWS_Sf\obj\Debug\AgentWS.dll
+D:\AgentWS_Sf\obj\Debug\AgentWS.xml
+D:\AgentWS_Sf\obj\Debug\AgentWS.pdb
+D:\AgentWS_Sf\obj\Debug\AgentWS.vbprojResolveAssemblyReference.cache
+C:\Users\Eugene\Desktop\AgentWS_Sf\AgentWS_Sf\obj\Debug\AgentWS.vbprojResolveAssemblyReference.cache
+C:\Users\Eugene\Desktop\AgentWS_Sf\AgentWS_Sf\obj\Debug\AgentWS.Resources.resources
+C:\Users\Eugene\Desktop\AgentWS_Sf\AgentWS_Sf\obj\Debug\AgentWS.vbproj.GenerateResource.Cache
+C:\Users\Eugene\Desktop\AgentWS_Sf\AgentWS_Sf\obj\Debug\AgentWS.dll
+C:\Users\Eugene\Desktop\AgentWS_Sf\AgentWS_Sf\obj\Debug\AgentWS.xml
+C:\Users\Eugene\Desktop\AgentWS_Sf\AgentWS_Sf\obj\Debug\AgentWS.pdb
+C:\Users\Eugene\Desktop\AgentWS_Sf\AgentWS_Sf\bin\AgentWS.dll.config
+C:\Users\Eugene\Desktop\AgentWS_Sf\AgentWS_Sf\bin\AgentWS.dll
+C:\Users\Eugene\Desktop\AgentWS_Sf\AgentWS_Sf\bin\AgentWS.pdb
+C:\Users\Eugene\Desktop\AgentWS_Sf\AgentWS_Sf\bin\AgentWS.xml
+C:\Users\Eugene\Desktop\TokioMarineLifeInsurance\AgentWS_Sf\AgentWS_Sf\bin\AgentWS.dll.config
+C:\Users\Eugene\Desktop\TokioMarineLifeInsurance\AgentWS_Sf\AgentWS_Sf\bin\AgentWS.dll
+C:\Users\Eugene\Desktop\TokioMarineLifeInsurance\AgentWS_Sf\AgentWS_Sf\bin\AgentWS.pdb
+C:\Users\Eugene\Desktop\TokioMarineLifeInsurance\AgentWS_Sf\AgentWS_Sf\bin\AgentWS.xml
+C:\Users\Eugene\Desktop\TokioMarineLifeInsurance\AgentWS_Sf\AgentWS_Sf\obj\Debug\AgentWS.vbprojResolveAssemblyReference.cache
+C:\Users\Eugene\Desktop\TokioMarineLifeInsurance\AgentWS_Sf\AgentWS_Sf\obj\Debug\AgentWS.Resources.resources
+C:\Users\Eugene\Desktop\TokioMarineLifeInsurance\AgentWS_Sf\AgentWS_Sf\obj\Debug\AgentWS.vbproj.GenerateResource.Cache
+C:\Users\Eugene\Desktop\TokioMarineLifeInsurance\AgentWS_Sf\AgentWS_Sf\obj\Debug\AgentWS.dll
+C:\Users\Eugene\Desktop\TokioMarineLifeInsurance\AgentWS_Sf\AgentWS_Sf\obj\Debug\AgentWS.xml
+C:\Users\Eugene\Desktop\TokioMarineLifeInsurance\AgentWS_Sf\AgentWS_Sf\obj\Debug\AgentWS.pdb
+D:\Work\IFC\Tokio Marine\AgentWS_Sf\AgentWS_Sf\bin\AgentWS.dll.config
+D:\Work\IFC\Tokio Marine\AgentWS_Sf\AgentWS_Sf\bin\AgentWS.dll
+D:\Work\IFC\Tokio Marine\AgentWS_Sf\AgentWS_Sf\bin\AgentWS.pdb
+D:\Work\IFC\Tokio Marine\AgentWS_Sf\AgentWS_Sf\bin\AgentWS.xml
+D:\Work\IFC\Tokio Marine\AgentWS_Sf\AgentWS_Sf\obj\Debug\AgentWS.Resources.resources
+D:\Work\IFC\Tokio Marine\AgentWS_Sf\AgentWS_Sf\obj\Debug\AgentWS.vbproj.GenerateResource.Cache
+D:\Work\IFC\Tokio Marine\AgentWS_Sf\AgentWS_Sf\obj\Debug\AgentWS.dll
+D:\Work\IFC\Tokio Marine\AgentWS_Sf\AgentWS_Sf\obj\Debug\AgentWS.xml
+D:\Work\IFC\Tokio Marine\AgentWS_Sf\AgentWS_Sf\obj\Debug\AgentWS.pdb
+D:\Work\IFC\Tokio Marine\AgentWS_Sf\AgentWS_Sf\obj\Debug\AgentWS.vbprojResolveAssemblyReference.cache
+C:\Users\Eugene\Desktop\AgentWS_Sf (1)\AgentWS_Sf\AgentWS_Sf\obj\Debug\AgentWS.vbprojResolveAssemblyReference.cache
+C:\Users\Eugene\Desktop\AgentWS_Sf (1)\AgentWS_Sf\AgentWS_Sf\obj\Debug\AgentWS.Resources.resources
+C:\Users\Eugene\Desktop\AgentWS_Sf (1)\AgentWS_Sf\AgentWS_Sf\obj\Debug\AgentWS.vbproj.GenerateResource.Cache
+C:\Users\Eugene\Desktop\AgentWS_Sf (1)\AgentWS_Sf\AgentWS_Sf\obj\Debug\AgentWS.dll
+C:\Users\Eugene\Desktop\AgentWS_Sf (1)\AgentWS_Sf\AgentWS_Sf\obj\Debug\AgentWS.xml
+C:\Users\Eugene\Desktop\AgentWS_Sf (1)\AgentWS_Sf\AgentWS_Sf\obj\Debug\AgentWS.pdb
+C:\Users\Eugene\Desktop\AgentWS_Sf (1)\AgentWS_Sf\AgentWS_Sf\bin\AgentWS.dll.config
+C:\Users\Eugene\Desktop\AgentWS_Sf (1)\AgentWS_Sf\AgentWS_Sf\bin\AgentWS.dll
+C:\Users\Eugene\Desktop\AgentWS_Sf (1)\AgentWS_Sf\AgentWS_Sf\bin\AgentWS.pdb
+C:\Users\Eugene\Desktop\AgentWS_Sf (1)\AgentWS_Sf\AgentWS_Sf\bin\AgentWS.xml
+D:\AgentWS_Sf\bin\AgentWS.dll.config
+D:\AgentWS_Sf\bin\Newtonsoft.Json.dll
+D:\AgentWS_Sf\bin\Newtonsoft.Json.xml
+D:\Work\SourceCode\AgentWS_Sf\bin\AgentWS.dll.config
+D:\Work\SourceCode\AgentWS_Sf\bin\AgentWS.dll
+D:\Work\SourceCode\AgentWS_Sf\bin\AgentWS.pdb
+D:\Work\SourceCode\AgentWS_Sf\bin\AgentWS.xml
+D:\Work\SourceCode\AgentWS_Sf\bin\Newtonsoft.Json.dll
+D:\Work\SourceCode\AgentWS_Sf\bin\Newtonsoft.Json.xml
+D:\Work\SourceCode\AgentWS_Sf\obj\Debug\AgentWS.vbprojResolveAssemblyReference.cache
+D:\Work\SourceCode\AgentWS_Sf\obj\Debug\AgentWS.Resources.resources
+D:\Work\SourceCode\AgentWS_Sf\obj\Debug\AgentWS.vbproj.GenerateResource.Cache
+D:\Work\SourceCode\AgentWS_Sf\obj\Debug\AgentWS.dll
+D:\Work\SourceCode\AgentWS_Sf\obj\Debug\AgentWS.xml
+D:\Work\SourceCode\AgentWS_Sf\obj\Debug\AgentWS.pdb
+D:\Work\SourceCode\AgentWS_Sf\bin\ICSharpCode.SharpZipLib.dll
+D:\Work\IFC\Tokio Marine\AgentWS_Sf\bin\AgentWS.dll.config
+D:\Work\IFC\Tokio Marine\AgentWS_Sf\bin\AgentWS.dll
+D:\Work\IFC\Tokio Marine\AgentWS_Sf\bin\AgentWS.pdb
+D:\Work\IFC\Tokio Marine\AgentWS_Sf\bin\AgentWS.xml
+D:\Work\IFC\Tokio Marine\AgentWS_Sf\bin\Newtonsoft.Json.dll
+D:\Work\IFC\Tokio Marine\AgentWS_Sf\bin\Newtonsoft.Json.xml
+D:\Work\IFC\Tokio Marine\AgentWS_Sf\obj\Debug\AgentWS.vbprojResolveAssemblyReference.cache
+D:\Work\IFC\Tokio Marine\AgentWS_Sf\obj\Debug\AgentWS.Resources.resources
+D:\Work\IFC\Tokio Marine\AgentWS_Sf\obj\Debug\AgentWS.vbproj.GenerateResource.Cache
+D:\Work\IFC\Tokio Marine\AgentWS_Sf\obj\Debug\AgentWS.dll
+D:\Work\IFC\Tokio Marine\AgentWS_Sf\obj\Debug\AgentWS.xml
+D:\Work\IFC\Tokio Marine\AgentWS_Sf\obj\Debug\AgentWS.pdb

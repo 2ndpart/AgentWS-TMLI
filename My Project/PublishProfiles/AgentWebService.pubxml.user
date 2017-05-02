@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile>2016-10-07T18:51:58.0000000+07:00</TimeStampOfAssociatedLegacyPublishXmlFile>
+    <_PublishTargetUrl>D:\Deploy Cloud\webservices</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="About.aspx">
+      <publishTime>05/02/2016 19:03:50</publishTime>
+    </File>
+    <File Include="Account/ChangePassword.aspx">
+      <publishTime>05/02/2016 18:41:10</publishTime>
+    </File>
+    <File Include="Account/ChangePasswordSuccess.aspx">
+      <publishTime>05/02/2016 18:41:10</publishTime>
+    </File>
+    <File Include="Account/Login.aspx">
+      <publishTime>05/02/2016 18:41:10</publishTime>
+    </File>
+    <File Include="Account/Register.aspx">
+      <publishTime>05/02/2016 18:41:10</publishTime>
+    </File>
+    <File Include="Account/Web.config">
+      <publishTime>05/02/2016 18:41:10</publishTime>
+    </File>
+    <File Include="AgentMgmt.asmx">
+      <publishTime>05/02/2016 18:41:10</publishTime>
+    </File>
+    <File Include="AgentWS.asmx">
+      <publishTime>05/02/2016 18:41:10</publishTime>
+    </File>
+    <File Include="BackgroundImage/photo_login_tertiary.png">
+      <publishTime>01/06/2017 17:38:45</publishTime>
+    </File>
+    <File Include="BackgroundImage/photo_news1_primary.png">
+      <publishTime>01/06/2017 17:38:44</publishTime>
+    </File>
+    <File Include="BackgroundImage/photo_news2_primary.png">
+      <publishTime>01/06/2017 17:38:44</publishTime>
+    </File>
+    <File Include="BackgroundImage/photo_news3_primary.png">
+      <publishTime>01/06/2017 17:38:45</publishTime>
+    </File>
+    <File Include="BackgroundImage/photo_spaj_primary.png">
+      <publishTime>01/06/2017 17:38:45</publishTime>
+    </File>
+    <File Include="BackgroundImage/photo_spaj_secondary.png">
+      <publishTime>01/06/2017 17:38:45</publishTime>
+    </File>
+    <File Include="bin/AgentWS.dll">
+      <publishTime>04/27/2017 09:33:48</publishTime>
+    </File>
+    <File Include="bin/AgentWS.xml">
+      <publishTime>04/27/2017 09:33:48</publishTime>
+    </File>
+    <File Include="bin/AjaxControlToolkit.dll">
+      <publishTime>05/02/2016 18:41:38</publishTime>
+    </File>
+    <File Include="bin/ChilkatDotNet4.dll">
+      <publishTime>08/26/2015 16:52:26</publishTime>
+    </File>
+    <File Include="bin/ICSharpCode.SharpZipLib.dll">
+      <publishTime>03/01/2011 14:16:38</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>06/13/2016 23:06:14</publishTime>
+    </File>
+    <File Include="Default.aspx">
+      <publishTime>05/02/2016 18:41:10</publishTime>
+    </File>
+    <File Include="EmailTemplate.html">
+      <publishTime>08/01/2017 23:03:22</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>05/02/2016 18:41:10</publishTime>
+    </File>
+    <File Include="Images/login_box.png">
+      <publishTime>03/13/2016 18:23:40</publishTime>
+    </File>
+    <File Include="Images/logo bless final-01.png">
+      <publishTime>03/13/2016 14:31:52</publishTime>
+    </File>
+    <File Include="InboundService.asmx">
+      <publishTime>10/10/2016 12:51:52</publishTime>
+    </File>
+    <File Include="LoginAPI.htm">
+      <publishTime>10/03/2016 13:09:32</publishTime>
+    </File>
+    <File Include="LoginSite.aspx">
+      <publishTime>10/19/2016 15:48:40</publishTime>
+    </File>
+    <File Include="MyForm.aspx">
+      <publishTime>12/10/2016 12:43:56</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>03/16/2017 09:36:40</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.4.1-vsdoc.js">
+      <publishTime>05/02/2016 18:41:30</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.4.1.js">
+      <publishTime>05/02/2016 18:41:30</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.4.1.min.js">
+      <publishTime>05/02/2016 18:41:32</publishTime>
+    </File>
+    <File Include="Site.Master">
+      <publishTime>05/02/2016 18:41:10</publishTime>
+    </File>
+    <File Include="Styles/Site.css">
+      <publishTime>05/02/2016 18:41:38</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>04/20/2017 10:47:03</publishTime>
+    </File>
+    <File Include="webservice.htc">
+      <publishTime>10/03/2016 13:10:04</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

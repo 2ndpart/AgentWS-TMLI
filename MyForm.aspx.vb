@@ -1,0 +1,58 @@
+﻿Imports System.Web.UI
+Imports System.Xml
+Imports System.IO
+
+
+Public Class MyForm
+    Inherits System.Web.UI.Page
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+    End Sub
+
+    Protected Sub btn_Check_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_Check.Click
+
+        Dim MS As New AgentWS
+        Dim strstatus As String = ""
+        MS.FullSyncTable("10000019", strstatus) 'MS.ValidateAgentAndDevice(Me.txt_AgentID.Text, Me.txt_DeviceID.Tex
+        lbl_ResultVal.Text = strstatus
+    End Sub
+
+    Protected Sub btn_Decrypt_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_Decrypt.Click
+        Dim MIS As New InboundService
+        MIS.ReceiveStringToTable(fileUp_Encrypted.ToString)
+    End Sub
+
+    Protected Sub btn_Encyrpt_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_Encyrpt.Click
+
+        'Dim MS As New AgentManagementWebServices
+
+        'lbl_EncryptStatus.Text = MS.EncryptFile(Convert.ToBase64String(fileUp_Decrypted.FileBytes), fileUp_Decrypted.FileName)
+
+    End Sub
+
+    Protected Sub btn_Refresh_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btn_Refresh.Click
+
+        'Dim MS As New AgentManagementWebServices
+        'Try
+        '    If txtProposeNo.Text <> "" And txtAgenCode.Text <> "" Then
+        '        lblPolicyNumber.Text = MS.RetrievePolicyNumber(txtAgenCode.Text, txtProposeNo.Text)
+        '    End If
+        'Catch ex As Exception
+        '    Throw ex
+        'End Try
+
+    End Sub
+
+    Protected Sub btnFP_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnFP.Click
+        Dim MIS As New InboundService
+        Dim basicxml As New XmlDocument()
+        basicxml.Load("C:\Users\Eugene\Desktop\TestData_DataReferral.xml")
+        Dim sw As New StringWriter()
+        Dim tx As New XmlTextWriter(sw)
+        basicxml.WriteTo(tx)
+
+        Dim xmlstring As String = sw.ToString()
+        MIS.ReceiveStringToTable(xmlstring)
+    End Sub
+End Class

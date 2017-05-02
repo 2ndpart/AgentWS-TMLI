@@ -1,0 +1,10 @@
+C:\Users\Eugene\Desktop\TokioMarineLifeInsurance\AgentWS_Sf\AgentWS_Sf\bin\AgentWS.dll.config
+C:\Users\Eugene\Desktop\TokioMarineLifeInsurance\AgentWS_Sf\AgentWS_Sf\bin\AgentWS.dll
+C:\Users\Eugene\Desktop\TokioMarineLifeInsurance\AgentWS_Sf\AgentWS_Sf\bin\AgentWS.pdb
+C:\Users\Eugene\Desktop\TokioMarineLifeInsurance\AgentWS_Sf\AgentWS_Sf\bin\AgentWS.xml
+C:\Users\Eugene\Desktop\TokioMarineLifeInsurance\AgentWS_Sf\AgentWS_Sf\obj\x64\Debug\AgentWS.Resources.resources
+C:\Users\Eugene\Desktop\TokioMarineLifeInsurance\AgentWS_Sf\AgentWS_Sf\obj\x64\Debug\AgentWS.vbproj.GenerateResource.Cache
+C:\Users\Eugene\Desktop\TokioMarineLifeInsurance\AgentWS_Sf\AgentWS_Sf\obj\x64\Debug\AgentWS.dll
+C:\Users\Eugene\Desktop\TokioMarineLifeInsurance\AgentWS_Sf\AgentWS_Sf\obj\x64\Debug\AgentWS.xml
+C:\Users\Eugene\Desktop\TokioMarineLifeInsurance\AgentWS_Sf\AgentWS_Sf\obj\x64\Debug\AgentWS.pdb
+C:\Users\Eugene\Desktop\TokioMarineLifeInsurance\AgentWS_Sf\AgentWS_Sf\obj\x64\Debug\AgentWS.vbprojResolveAssemblyReference.cache
