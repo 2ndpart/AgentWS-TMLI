@@ -285,7 +285,7 @@ Public Class AgentWS
     End Function
 
     <WebMethod()>
-    Public Function OnPostUploadSPAJFiles(spajCode As String, productName As String, polisOwner As String, isResubmit As String) As String
+    Public Function OnPostUploadSPAJFiles(spajCode As String, productName As String, polisOwner As String, isResubmit As String, agentCode As String) As String
         Dim objDBCom As New MySQLDBComponent.MySQLDBComponent(POSWeb.POSWeb_SQLConn)
         Dim emailAddress As String
 
@@ -294,27 +294,28 @@ Public Class AgentWS
             Dim selectCountStatement As String = "SELECT SPAJCode FROM TMLI_TBT_SPAJ_ESUBMISSION WHERE SPAJCode =" & spajCode
             Dim dTable As New DataTable
             objDBCom.ExecuteSQL(dTable, selectCountStatement)
-
+            Dim serverURL = ConfigurationManager.AppSettings.Get("ServerURL")
             If dTable.Rows.Count > 0 Then
 
                 If dTable.Rows(0)(0) > 0 Then
                     'meaning record already exist
                     updateStatement = "UPDATE TMLI_TBT_SPAJ_ESUBMISSION SET FileLocation=@fileLocation, SubmittedDate=@submitDate, ProductName=@productName, PolisOwner=@polisOwner WHERE SPAJCode=@spajCode"
                     Dim command As New SqlCommand(updateStatement)
-                    command.Parameters.AddWithValue("@fileLocation", "https://tmcuat.tokiomarine-life.co.id/SPAJFiles/" & spajCode)
+                    command.Parameters.AddWithValue("@fileLocation", serverURL & "/SPAJFiles/" & spajCode)
                     command.Parameters.AddWithValue("@submitDate", Now)
                     command.Parameters.AddWithValue("@productName", productName)
                     command.Parameters.AddWithValue("@polisOwner", polisOwner)
                     command.Parameters.AddWithValue("@spajCode", spajCode)
                     objDBCom.ExecuteSqlCommand(command)
                 Else
-                    updateStatement = "INSERT INTO TMLI_TBT_SPAJ_ESUBMISSION (SPAJCode, FileLocation, SubmittedDate, ProductName, PolisOwner) VALUES (@spajCode,@fileLocation,@submitDate,@productName,@polisOwner)"
+                    updateStatement = "INSERT INTO TMLI_TBT_SPAJ_ESUBMISSION (SPAJCode, FileLocation, SubmittedDate, ProductName, PolisOwner, AgentCode) VALUES (@spajCode,@fileLocation,@submitDate,@productName,@polisOwner,@agentCode)"
                     Dim command As New SqlCommand(updateStatement)
-                    command.Parameters.AddWithValue("@fileLocation", "https://tmcuat.tokiomarine-life.co.id/SPAJFiles/" & spajCode)
+                    command.Parameters.AddWithValue("@fileLocation", serverURL & "/SPAJFiles/" & spajCode)
                     command.Parameters.AddWithValue("@submitDate", Now)
                     command.Parameters.AddWithValue("@productName", productName)
                     command.Parameters.AddWithValue("@polisOwner", polisOwner)
                     command.Parameters.AddWithValue("@spajCode", spajCode)
+                    command.Parameters.AddWithValue("@agentCode", agentCode)
                     objDBCom.ExecuteSqlCommand(command)
                 End If
 
@@ -327,7 +328,7 @@ Public Class AgentWS
 
                 For Each fileName As String In fileList
                     'A Section
-                    Dim newFileName As String = fileName.Replace("C:/inetpub/wwwroot", "https://tmcuat.tokiomarine-life.co.id")
+                    Dim newFileName As String = fileName.Replace("C:/inetpub/wwwroot", serverURL)
                     If fileName.Contains("_a1") Then
                         channel.Property("spaj_a1").Value = newFileName
                     End If

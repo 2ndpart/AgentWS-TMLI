@@ -126,3 +126,16 @@ D:\Work\IFC\Tokio Marine\AgentWS_Sf\obj\Debug\AgentWS.vbproj.GenerateResource.Ca
 D:\Work\IFC\Tokio Marine\AgentWS_Sf\obj\Debug\AgentWS.dll
 D:\Work\IFC\Tokio Marine\AgentWS_Sf\obj\Debug\AgentWS.xml
 D:\Work\IFC\Tokio Marine\AgentWS_Sf\obj\Debug\AgentWS.pdb
+D:\Work\SourceCode\TMLI-WS\bin\AgentWS.dll.config
+D:\Work\SourceCode\TMLI-WS\bin\AgentWS.dll
+D:\Work\SourceCode\TMLI-WS\bin\AgentWS.pdb
+D:\Work\SourceCode\TMLI-WS\bin\AgentWS.xml
+D:\Work\SourceCode\TMLI-WS\bin\ICSharpCode.SharpZipLib.dll
+D:\Work\SourceCode\TMLI-WS\bin\Newtonsoft.Json.dll
+D:\Work\SourceCode\TMLI-WS\bin\Newtonsoft.Json.xml
+D:\Work\SourceCode\TMLI-WS\obj\Debug\AgentWS.vbprojResolveAssemblyReference.cache
+D:\Work\SourceCode\TMLI-WS\obj\Debug\AgentWS.Resources.resources
+D:\Work\SourceCode\TMLI-WS\obj\Debug\AgentWS.vbproj.GenerateResource.Cache
+D:\Work\SourceCode\TMLI-WS\obj\Debug\AgentWS.dll
+D:\Work\SourceCode\TMLI-WS\obj\Debug\AgentWS.xml
+D:\Work\SourceCode\TMLI-WS\obj\Debug\AgentWS.pdb
